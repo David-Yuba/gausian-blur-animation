@@ -25,7 +25,7 @@
 
         void main() {
           vec2 fragC = vec2(gl_FragCoord.x-res.x/2.,gl_FragCoord.y-res.y/2.)/(res)*0.8;
-          gl_FragColor = vec4(0,0,0,1)+vec4(22./255.,18./255.,59./255.,length(fragC)-0.25+rad);
+          gl_FragColor = vec4(0,0,0,1)+vec4(22./255.,18./255.,59./255.,-0.5+4.*length(fragC)*exp(sin(rad/1000.)));
         }
       </script>
 </head>
