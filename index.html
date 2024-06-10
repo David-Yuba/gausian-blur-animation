@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="style.css">
+
+    <script id="vertex-shader-2d" type="GLSL">
+ 
+        attribute vec4 a_position;
+
+        uniform vec2 u_resolution;
+        uniform float radius;
+        uniform vec2 center;
+
+        void main() {
+          gl_Position = a_position;
+        }
+       
+      </script>
+       
+      <script id="fragment-shader-2d" type="GLSL">
+        precision mediump float;
+        
+        uniform vec2 res;
+        uniform float rad;
+
+        void main() {
+          vec2 fragC = vec2(gl_FragCoord.x-res.x/2.,gl_FragCoord.y-res.y/2.)/(res)*0.8;
+          gl_FragColor = vec4(0,0,0,1)+vec4(22./255.,18./255.,59./255.,length(fragC)-0.25+rad);
+        }
+      </script>
+</head>
+<body>
+    <canvas ></canvas>
+    <script src="webglboilerplate.js" type="module"></script>
+    <script src="javascript.js" type="module"></script>
+</body>
+</html>
